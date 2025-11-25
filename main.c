@@ -6,7 +6,7 @@
 /*   By: nloh <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 15:09:22 by nloh              #+#    #+#             */
-/*   Updated: 2025/11/25 15:16:41 by nloh             ###   ########.fr       */
+/*   Updated: 2025/11/25 15:38:05 by nloh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,17 @@ static void	prt(char *s)
 	while (s[i])
 		i++;
 	write(1, s, i);
+	write(1, "\n", 1);
 }
 
 int	main(void)
 {
-	char	*s;
+	char	*cmd;
 
-	s = readline("prompt> ");
-	prt(s);
-	free(s);
+	while (1)
+	{
+		cmd = readline("prompt> ");
+		prt(cmd);
+		free(cmd);
+	}
 }
